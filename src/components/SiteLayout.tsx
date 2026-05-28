@@ -117,9 +117,9 @@ export function SiteFooter() {
           <div>
             <h4 className="text-sm font-semibold text-foreground">Contact</h4>
             <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-              <li className="flex items-start gap-2"><MapPin className="h-4 w-4 mt-0.5 text-primary" /> Antananarivo, Madagascar</li>
-              <li className="flex items-start gap-2"><Mail className="h-4 w-4 mt-0.5 text-primary" /> contact@anjaramahasoa.org</li>
-              <li className="flex items-start gap-2"><Phone className="h-4 w-4 mt-0.5 text-primary" /> +261 00 000 00 00</li>
+              <li className="flex items-start gap-2"><MapPin className="h-4 w-4 mt-0.5 text-primary" /><span>Antananarivo, Madagascar</span></li>
+              <li className="flex items-start gap-2"><Mail className="h-4 w-4 mt-0.5 text-primary" /><span>contact@anjaramahasoa.org</span></li>
+              <li className="flex items-start gap-2"><Phone className="h-4 w-4 mt-0.5 text-primary" /><span>+261 00 000 00 00</span></li>
             </ul>
           </div>
         </div>

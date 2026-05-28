@@ -56,9 +56,9 @@ function Contact() {
             <div className="rounded-2xl border border-border bg-card p-6">
               <h3 className="font-display text-lg font-semibold">Coordonnées</h3>
               <ul className="mt-4 space-y-3 text-sm text-foreground/85">
-                <li className="flex items-start gap-3"><MapPin className="mt-0.5 h-4 w-4 text-primary" /> Antananarivo, Madagascar</li>
-                <li className="flex items-start gap-3"><Mail className="mt-0.5 h-4 w-4 text-primary" /> contact@anjaramahasoa.org</li>
-                <li className="flex items-start gap-3"><Phone className="mt-0.5 h-4 w-4 text-primary" /> +261 00 000 00 00</li>
+                <li className="flex items-start gap-3"><MapPin className="mt-0.5 h-4 w-4 text-primary" /><span>Antananarivo, Madagascar</span></li>
+                <li className="flex items-start gap-3"><Mail className="mt-0.5 h-4 w-4 text-primary" /><span>contact@anjaramahasoa.org</span></li>
+                <li className="flex items-start gap-3"><Phone className="mt-0.5 h-4 w-4 text-primary" /><span>+261 00 000 00 00</span></li>
               </ul>
             </div>
             <div className="rounded-2xl bg-secondary p-6">
