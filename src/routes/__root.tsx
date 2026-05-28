@@ -77,6 +77,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "Anjaramahasoa" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Anjaramahasoa — Développement rural à Madagascar" },
+      { name: "twitter:title", content: "Anjaramahasoa — Développement rural à Madagascar" },
+      { property: "og:description", content: "Association malgache pour l'électrification rurale, l'eau potable, l'éducation et l'hygiène." },
+      { name: "twitter:description", content: "Association malgache pour l'électrification rurale, l'eau potable, l'éducation et l'hygiène." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c4e1fc9d-1316-4471-aeb0-2d6f7dd2dd6a/id-preview-5e10a8d1--f268d3de-03e5-4185-8837-d9ec5cfe4d6b.lovable.app-1779995289920.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c4e1fc9d-1316-4471-aeb0-2d6f7dd2dd6a/id-preview-5e10a8d1--f268d3de-03e5-4185-8837-d9ec5cfe4d6b.lovable.app-1779995289920.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
