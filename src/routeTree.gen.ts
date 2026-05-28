@@ -9,8 +9,38 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SoutenirRouteImport } from './routes/soutenir'
+import { Route as RealisationsRouteImport } from './routes/realisations'
+import { Route as QuiSommesNousRouteImport } from './routes/qui-sommes-nous'
+import { Route as ProjetsRouteImport } from './routes/projets'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SoutenirRoute = SoutenirRouteImport.update({
+  id: '/soutenir',
+  path: '/soutenir',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RealisationsRoute = RealisationsRouteImport.update({
+  id: '/realisations',
+  path: '/realisations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuiSommesNousRoute = QuiSommesNousRouteImport.update({
+  id: '/qui-sommes-nous',
+  path: '/qui-sommes-nous',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjetsRoute = ProjetsRouteImport.update({
+  id: '/projets',
+  path: '/projets',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +49,102 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/projets': typeof ProjetsRoute
+  '/qui-sommes-nous': typeof QuiSommesNousRoute
+  '/realisations': typeof RealisationsRoute
+  '/soutenir': typeof SoutenirRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/projets': typeof ProjetsRoute
+  '/qui-sommes-nous': typeof QuiSommesNousRoute
+  '/realisations': typeof RealisationsRoute
+  '/soutenir': typeof SoutenirRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/projets': typeof ProjetsRoute
+  '/qui-sommes-nous': typeof QuiSommesNousRoute
+  '/realisations': typeof RealisationsRoute
+  '/soutenir': typeof SoutenirRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/contact'
+    | '/projets'
+    | '/qui-sommes-nous'
+    | '/realisations'
+    | '/soutenir'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/contact'
+    | '/projets'
+    | '/qui-sommes-nous'
+    | '/realisations'
+    | '/soutenir'
+  id:
+    | '__root__'
+    | '/'
+    | '/contact'
+    | '/projets'
+    | '/qui-sommes-nous'
+    | '/realisations'
+    | '/soutenir'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactRoute: typeof ContactRoute
+  ProjetsRoute: typeof ProjetsRoute
+  QuiSommesNousRoute: typeof QuiSommesNousRoute
+  RealisationsRoute: typeof RealisationsRoute
+  SoutenirRoute: typeof SoutenirRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/soutenir': {
+      id: '/soutenir'
+      path: '/soutenir'
+      fullPath: '/soutenir'
+      preLoaderRoute: typeof SoutenirRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/realisations': {
+      id: '/realisations'
+      path: '/realisations'
+      fullPath: '/realisations'
+      preLoaderRoute: typeof RealisationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/qui-sommes-nous': {
+      id: '/qui-sommes-nous'
+      path: '/qui-sommes-nous'
+      fullPath: '/qui-sommes-nous'
+      preLoaderRoute: typeof QuiSommesNousRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projets': {
+      id: '/projets'
+      path: '/projets'
+      fullPath: '/projets'
+      preLoaderRoute: typeof ProjetsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +157,12 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactRoute: ContactRoute,
+  ProjetsRoute: ProjetsRoute,
+  QuiSommesNousRoute: QuiSommesNousRoute,
+  RealisationsRoute: RealisationsRoute,
+  SoutenirRoute: SoutenirRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
